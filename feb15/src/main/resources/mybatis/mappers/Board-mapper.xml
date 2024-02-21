@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="board">
+  
+  	<resultMap type="cdto" id="commentDTOmap">
+  		<result column="cno" property="no"/>
+  		<result column="ccomment" property="comment"/>
+		<result column="board_no" property="board_no"/>
+		<result column="clike" property="clike"/>
+		<result column="cdate" property="cdate"/>
+		<result column="mno" property="mno"/>
+		<result column="mid" property="mid"/>
+		<result column="mname" property="mname"/>
+		<result column="cip" property="cip"/>
+  	</resultMap>
+  
+  
+		<select id="boardList" resultType="HashMap">
+			SELECT board_no, board_title, board_write AS mname, board_date, board_count, comment FROM boardview LIMIT #{pageNo},10
+		</select>
+		<select id="totalRecordCount" resultType="Integer">
+			SELECT COUNT(*) FROM board WHERE board_del='1'		
+		</select>
+		<select id="detail" resultType="bdto" parameterType="Integer">
+			SELECT b.board_no, b.board_title, b.board_content, m.mname, m.mid ,b.board_date, b.board_ip, b.board_del, (SELECT COUNT(*) FROM comment WHERE board_no=#{no})AS comment 
+			FROM board b JOIN member m ON b.mno=m.mno
+			WHERE b.board_no=#{no} AND b.board_del='1'
+		</select>
+		<insert id="write" parameterType="wdto">
+			INSERT INTO board(board_title, board_content, mno, board_ip) 
+			VALUES (#{title}, #{content}, (SELECT mno FROM member WHERE mid=#{mid}), #{ip})
+			<selectKey resultType="Integer" keyProperty="board_no" order="AFTER">
+				SELECT LAST_INSERT_ID()<!-- 마지막에 입력한 PK값 뽑아주는 쿼리문 -->
+			</selectKey> 		
+		</insert>
+		<insert id="commentWrite" parameterType="cdto">
+			INSERT INTO comment(board_no, ccomment, mno, cip) VALUES(#{no}, #{comment}, (SELECT mno FROM member WHERE mid=#{mid}),#{cip})
+		</insert>
+		<select id="commentsList" parameterType="Integer" resultMap="commentDTOmap">
+			SELECT cno, ccomment, cdate, clike, mid, mname, cip FROM commentview WHERE board_no=#{no}
+		</select>
+		<update id="postDel" parameterType="wdto">
+			<![CDATA[
+			UPDATE board SET board_del ='0' WHERE board_no = #{board_no} AND mno = (SELECT mno FROM member WHERE mid=#{mid})
+			]]>
+		</update>
+		<update id="deleteComment" parameterType="cdto">
+			UPDATE comment SET cdel = 0 WHERE board_no=#{board_no} AND cno = #{no} AND mno = (SELECT mno FROM member WHERE mid=#{mid}) 
+		</update>
+		
+		
+  </mapper>
