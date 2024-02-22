@@ -147,4 +147,18 @@ public class BoardController {
 			return "redirect:/login";
 		}
 	}
+	@GetMapping("/likeUp")
+	public String likeUp(@RequestParam("no") String no, @RequestParam("cno") String cno) {
+		System.out.println("no : "+no);
+		System.out.println("cno : "+cno);
+		if (util.getSession().getAttribute("mid") != null && util.intCheck(cno) && util.intCheck(no)) {
+			CommentDTO dto = new CommentDTO();
+			dto.setBoard_no(util.str2Int(no));
+			dto.setNo(util.str2Int(cno));
+			int result = boardservice.likeUp(dto);
+			return "redirect:/detail?no="+dto.getBoard_no();
+		}else {
+			return "redirect:/error";
+		}
+	}
 }

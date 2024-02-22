@@ -24,6 +24,19 @@ public class BoardService {
 	}
 
 	public BoardDTO detail(int no) {
+		//2024-02-22
+		//조회수 올리기(로그인 검사 -> 조회수 올리기)
+		if (util.getSession().getAttribute("mid") != null) {
+			// DTO 객체 만들기 = 번호 + 아이디
+			BoardDTO dto = new BoardDTO();
+			dto.setBoard_no(no);
+			dto.setMid((String)util.getSession().getAttribute("mid"));
+			//int result = dao.checkCount(dto);
+			//if (result == 0) {// result가 0이면 게시물을 읽지 않았기 때문에 조회수를 올리는 메소드를 실행한다.
+				dao.countUp(dto); // 결과를 안 받아도 되서 return이 없어도 된다.
+			//}
+		}
+		
 		return dao.detail(no);
 	}
 
@@ -74,5 +87,11 @@ public class BoardService {
 		dto.setMid((String)util.getSession().getAttribute("mid"));
 		return dao.deleteComment(dto);
 	}
+
+	public int likeUp(CommentDTO dto) {
+
+		return dao.likeUp(dto);
+	}
+
 
 }

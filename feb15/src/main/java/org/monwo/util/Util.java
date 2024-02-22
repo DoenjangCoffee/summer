@@ -1,8 +1,12 @@
 package org.monwo.util;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -51,5 +55,44 @@ public class Util{
 					ip = request.getRemoteAddr();
 				}
 			return ip;
+	}
+	
+	//숫자인지 검사하는 메소드
+	public boolean intCheck(String str) {
+		try {
+			Integer.parseInt(str);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void sendEmail(String email, String title, String key) throws EmailException {
+				//mail 보내기
+				String emailAddr = "";// 이메일 주소
+				String name = "도지코인"; // 이름
+				String passwd = ""; // 암호
+				String hostName = "smtp-mail.outlook.com"; // 서버 
+				int port = 587; // port number
+				SimpleEmail se = new SimpleEmail();
+				// 여기서 부터 진짜 메일을 보낸다.
+				se.setCharset("UTF-8");
+				se.setDebug(true);
+				se.setHostName(hostName);				// 보내는 서버 설정 = 고정
+				se.setAuthentication(emailAddr, passwd);// 보내느 사람 인증 = 고정
+				se.setSmtpPort(port);					// 사용할 port = 고정
+				se.setStartTLSEnabled(true);			// 보내는 사람 email, 보내는 사람
+				se.setFrom(emailAddr, name);			// 받는 사람
+				se.addTo(email);						// 사용자가 이메일 등록할 때 이 이메일로 등록했다.
+				se.setSubject(title); 					// 제목
+				se.setMsg("인증번호는 ["+key+"]"); 		//본문내용 text
+				se.send(); // 전송하기
+	}
+
+	public String createKey() {
+		Random r = new Random();
+		r.setSeed(System.currentTimeMillis());
+		String key =r.nextInt(9)+""+r.nextInt(9)+r.nextInt(9)+r.nextInt(9);
+		return key;
 	}
 }

@@ -2,6 +2,8 @@ package org.monwo.service;
 
 import org.monwo.dao.LoginDAO;
 import org.monwo.dto.LoginDTO;
+import org.monwo.dto.MemberDTO;
+import org.monwo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 	@Autowired
 	private LoginDAO loginDAO;
+	@Autowired
+	private Util util;
 	
 	public LoginDTO login(LoginDTO loginDTO) {
 		
@@ -23,5 +27,4 @@ public class LoginService {
 	public void mcountReset(LoginDTO loginDTO) {
 		loginDAO.mcountReset(loginDTO);
 	}
-
 }

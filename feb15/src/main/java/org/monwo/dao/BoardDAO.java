@@ -22,6 +22,9 @@ public class BoardDAO {
 	public int wrtie(WriteDTO dto) {
 		return sqlsession.insert("board.write",dto);
 	}
+	public void countUp(BoardDTO dto) {
+		sqlsession.insert("board.countUp",dto);
+	}
 	public int commentWrite(CommentDTO comment) {
 		return sqlsession.insert("board.commentWrite",comment);
 	}
@@ -36,6 +39,12 @@ public class BoardDAO {
 	}
 	public int deleteComment(CommentDTO dto) {
 		return sqlsession.update("board.deleteComment", dto);
+	}
+	public int checkCount(BoardDTO dto) {
+		return sqlsession.selectOne("board.checkCount", dto);
+	}
+	public int likeUp(CommentDTO dto) {
+		return sqlsession.update("board.likeUp",dto);
 	}
 	
 }

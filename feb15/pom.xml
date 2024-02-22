@@ -37,6 +37,13 @@
 		</repository>
 	</repositories>
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
+		<dependency>
+    		<groupId>org.apache.commons</groupId>
+    		<artifactId>commons-email</artifactId>
+		    <version>1.5</version>
+		</dependency>
+	
 		<!--	전자정부	페이징	-->
 	<dependency>
 	<groupId>egovframework.rte</groupId>

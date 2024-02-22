@@ -8,6 +8,7 @@
   		<typeAlias type="org.monwo.dto.WriteDTO" alias="wdto"/>
   		<typeAlias type="org.monwo.dto.CommentDTO" alias="cdto"/>
   		<typeAlias type="org.monwo.dto.LoginDTO" alias="loginDTO"/>
+  		<typeAlias type="org.monwo.dto.MemberDTO" alias="mdto"/>
   	</typeAliases>
   	
   </configuration>

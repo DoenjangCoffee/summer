@@ -42,6 +42,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
+	function likeUp(cno){
+		Swal.fire("좋아요를 누릅니다.","","success");
+		location.href="./likeUp?no=${detail.board_no}&cno="+cno;/* 이렇게 하면 화면이 깜빡인다. 직접적으로 db로 올리고 다시 이 페이지를 부르기 때문에 */
+	}
 	function deletePost(){
 		   Swal.fire({
 		        title: "글을 삭제 하겠어요?",
@@ -150,7 +154,7 @@ $(function(){
 		<c:forEach items="${commentsList }" var="e">
 		<div class="my-4">
 			<div class="bg-primary row p-2">
-				<div class="col-7">${e.no }</div>
+				<div class="col-5">${e.no }</div>
 				<div class="col-2">${e.mname }
 				<c:if test="${e.mid eq sessionScope.mid }">
 				<a onclick="deleteComment(${e.no})">
@@ -164,6 +168,9 @@ $(function(){
 				</c:if>
 				</div>
 				<div class="col-2">${e.cdate }</div>
+				<a onclick="likeUp(${e.no})"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-kiss" viewBox="0 0 16 16">
+  				<path fill-rule="evenodd" d="M12.493 13.368a7 7 0 1 1 2.489-4.858c.344.033.68.147.975.328a8 8 0 1 0-2.654 5.152 9 9 0 0 1-.81-.622m-3.731-3.22a13 13 0 0 0-1.107.318.5.5 0 1 1-.31-.95c.38-.125.802-.254 1.192-.343.37-.086.78-.153 1.103-.108.16.022.394.085.561.286.188.226.187.497.131.705a1.9 1.9 0 0 1-.31.593q-.115.16-.275.343.16.186.276.347c.142.197.256.397.31.595.055.208.056.479-.132.706-.168.2-.404.262-.563.284-.323.043-.733-.027-1.102-.113a15 15 0 0 1-1.191-.345.5.5 0 1 1 .31-.95c.371.12.761.24 1.109.321q.264.062.446.084a6 6 0 0 0-.502-.584.5.5 0 0 1 .002-.695 5.5 5.5 0 0 0 .5-.577 5 5 0 0 0-.448.082Zm.766-.087-.003-.001-.003-.001zm.002 1.867-.006.001zM6 8c.552 0 1-.672 1-1.5S6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8m2.757-.563a.5.5 0 0 0 .68-.194.93.93 0 0 1 .813-.493c.339 0 .645.19.813.493a.5.5 0 0 0 .874-.486A1.93 1.93 0 0 0 10.25 5.75c-.73 0-1.356.412-1.687 1.007a.5.5 0 0 0 .194.68M14 9.828c1.11-1.14 3.884.856 0 3.422-3.884-2.566-1.11-4.562 0-3.421Z"/>
+				</svg></a>
 				<div class="col-1">${e.clike }</div>
 			</div>
 			<div class="col-10 mx-5 h-auto p-3 " >${e.comment }</div>

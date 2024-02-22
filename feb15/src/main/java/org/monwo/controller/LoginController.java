@@ -3,18 +3,24 @@ package org.monwo.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.monwo.dto.LoginDTO;
+import org.monwo.dto.MemberDTO;
 import org.monwo.service.LoginService;
+import org.monwo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
 	@Autowired
 	LoginService loginService;
-
+	@Autowired
+	Util util;
 	@GetMapping("/login")
 	public String login() {
 		
@@ -65,5 +71,21 @@ public class LoginController {
 		session.invalidate(); // <= 이것도 확인하기
 		
 		return "redirect:/login";
+	}
+	// http://172.30.1.200/myinfo@monwo
+	@GetMapping("/myinfo@{id}")
+	public String myinfo(@PathVariable("id") String id) throws EmailException {
+		if (util.getSession().getAttribute("mid") != null) {
+			
+			// 인증 요청 하기 = ajax용으로 빼두기
+			//loginService.myInfo();
+			
+			
+			return "myinfo";
+		}else {
+			return "redirect:/login";
+		}
+		
+		
 	}
 }

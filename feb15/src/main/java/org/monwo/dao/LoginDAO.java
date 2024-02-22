@@ -2,6 +2,7 @@ package org.monwo.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.monwo.dto.LoginDTO;
+import org.monwo.dto.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
