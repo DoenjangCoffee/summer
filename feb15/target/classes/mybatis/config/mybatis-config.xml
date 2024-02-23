@@ -9,6 +9,7 @@
   		<typeAlias type="org.monwo.dto.CommentDTO" alias="cdto"/>
   		<typeAlias type="org.monwo.dto.LoginDTO" alias="loginDTO"/>
   		<typeAlias type="org.monwo.dto.MemberDTO" alias="mdto"/>
+  		<typeAlias type="org.monwo.dto.GalleryDTO" alias="gdto"/>
   	</typeAliases>
   	
   </configuration>

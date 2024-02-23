@@ -191,7 +191,7 @@ function linkPage(pageNo){
 		</div>
 	</div>
 
- 	<footer class="footer py-4 fixed-bottom">
+ 	<footer class="footer py-4">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-4 text-lg-start">Copyright &copy; M Company 2024</div>

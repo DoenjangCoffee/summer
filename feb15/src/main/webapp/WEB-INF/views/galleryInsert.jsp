@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Agency - Start Bootstrap Theme</title>
+<title>Gallery Board</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -28,66 +28,56 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Sweet 팝업창 이쁘게 만들어주는거 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+	function fileCheck(){
+		var fileVal = $("#file1").val(); // 파일이름 가져오기
+		if (fileVal == "") {
+			alert('파일을 선택해주세요.');
+			return false;
+		}else{
+			var ext = fileVal.split('.').pop().toLowerCase(); // 확장자 분리
+			//아래 확장자가 있는지 체크
+			if ($.inArray(ext,['jpg','jpeg','gif','png'] == -1)) {
+				alert("JPG, gif, JPEG, png 파일만 업로드 할 수 있습니다.");
+			}
+		}
+	}
+</script>
 </head>
-<body id="page-top">
-	<!-- Navigation-->
+<body>
+
 	<%@ include file="menu.jsp" %>
 	
-	<!-- login -->
-	<section class="page-selection" id="login">
-		<div class="container">
-			<div class="mt-5 d-flex justifiy-content-center">
-				<img alt="login" src="./img/login.png" width="256px;">
-				<form action="./login" method="post">
-					<div class="mt-3 pt-1">
-  					<input type="text" name="id" class="form-control" id="exampleFormControlInput1" placeholder="아이디를 적어주세요">
-					</div>
-					<div class="d-flex justifiy-content-center">
-					<input type="password" name="pw" class="form-control" id="exampleFormControlInput1" placeholder="비밀번호를 적어주세요">
-					</div>
-					<div class="mt-2 pt-2 col-12">
-					<button type="submit" class="btn btn-outline-success">로그인</button>
-					<button type="reset" class="btn btn-outline-secondary">초기화</button>
-					</div>
+	
+	<!-- 파일 업로드 -->
+	<section class="page-selection" id="gallery">
+		<div class="d-flex justify-content-center">
+			<div class="text-center border border-danger border-3 p-3 rounded">
+				<h2>갤러리 글쓰기</h2>
+				<form action="./galleryInsert" method="post" enctype="multipart/form-data" onsubmit="fileCheck()">
+				<input name="gtitle"type="text" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력해주세요">
+				<textarea name="gcontent" class="form-control mt-1" id="exampleFormControlTextarea1" rows="10" placeholder="내용을 입력해주세요"></textarea>
+				
+				<div class= "input=group mb-3">
+					<input type="file" accept="image/png, image/gif" name="file1" class="form-control" id="inputGroupFile02" placeholder="추가해주시요" aria-label="Username" aria-describedby="basic-addon1">
+					<button type="submit" class="btn btn-outline-primary">전송하기</button>
+				</div>
 				</form>
-				<button type="button" id="join" class="btn btn-outline-danger">가입하기</button>
 			</div>
 		</div>
 	</section>
 
-	<!-- Footer-->
-	<footer class="footer py-4">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-4 text-lg-start">Copyright &copy; Your
-					Website 2023</div>
-				<div class="col-lg-4 my-3 my-lg-0">
-					<a class="btn btn-dark btn-social mx-2" href="#!"
-						aria-label="Twitter"><i class="fab fa-twitter"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"
-						aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"
-						aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-				</div>
-				<div class="col-lg-4 text-lg-end">
-					<a class="link-dark text-decoration-none me-3" href="#!">Privacy
-						Policy</a> <a class="link-dark text-decoration-none" href="#!">Terms
-						of Use</a>
-				</div>
-			</div>
-		</div>
-	</footer>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

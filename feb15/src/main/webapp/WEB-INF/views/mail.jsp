@@ -1,71 +1,82 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Agency - Start Bootstrap Theme</title>
+<title>Mail 보내기</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
-<link rel="apple-touch-icon" sizes="57x57" href="assets//apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="assets//apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="assets//apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="assets//apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="assets//apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="assets//apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="assets//apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="assets//apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets//apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets//android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets//favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="assets//favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets//favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="57x57"
+	href="assets//apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60"
+	href="assets//apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72"
+	href="assets//apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76"
+	href="assets//apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114"
+	href="assets//apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120"
+	href="assets//apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144"
+	href="assets//apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152"
+	href="assets//apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180"
+	href="assets//apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"
+	href="assets//android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="assets//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96"
+	href="assets//favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="assets//favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-
 <!-- Font Awesome icons (free version)-->
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+	crossorigin="anonymous"></script>
 <!-- Google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Sweet 팝업창 이쁘게 만들어주는거 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body id="page-top">
 	<!-- Navigation-->
 	<%@ include file="menu.jsp" %>
 	
-	<!-- login -->
-	<section class="page-selection" id="login">
-		<div class="container">
-			<div class="mt-5 d-flex justifiy-content-center">
-				<img alt="login" src="./img/login.png" width="256px;">
-				<form action="./login" method="post">
-					<div class="mt-3 pt-1">
-  					<input type="text" name="id" class="form-control" id="exampleFormControlInput1" placeholder="아이디를 적어주세요">
-					</div>
-					<div class="d-flex justifiy-content-center">
-					<input type="password" name="pw" class="form-control" id="exampleFormControlInput1" placeholder="비밀번호를 적어주세요">
-					</div>
-					<div class="mt-2 pt-2 col-12">
-					<button type="submit" class="btn btn-outline-success">로그인</button>
-					<button type="reset" class="btn btn-outline-secondary">초기화</button>
-					</div>
+	<!-- ㅡmail -->
+	<section class="page-selection" id="mail">
+		<div class="d-flex justify-content-center">
+			<div class="text-center">
+				<form action="/mail" method="post">
+					받는 사람 : <input type="email" name="email">
+					제목 : <input type="text" name="title">
+					본문 : <textarea name="content"></textarea>
+					<button type="submit">보내기</button>
 				</form>
-				<button type="button" id="join" class="btn btn-outline-danger">가입하기</button>
 			</div>
 		</div>
 	</section>
-
 	<!-- Footer-->
 	<footer class="footer py-4">
 		<div class="container">

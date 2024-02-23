@@ -1,6 +1,10 @@
 package org.monwo.util;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +14,9 @@ import org.apache.commons.mail.SimpleEmail;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
+
+import net.coobird.thumbnailator.Thumbnailator;
 
 @Component
 public class Util{
@@ -94,5 +101,37 @@ public class Util{
 		r.setSeed(System.currentTimeMillis());
 		String key =r.nextInt(9)+""+r.nextInt(9)+r.nextInt(9)+r.nextInt(9);
 		return key;
+	}
+
+	public String fileUpload(MultipartFile upFile) { // 유효 ID 뽑기
+		// 경로 저장하기
+		String root = req().getSession().getServletContext().getRealPath("/"); // 실제 root 경로
+		String upFilePath = root + "resources\\upFile\\";
+		//UUID 뽑기
+		UUID uuid = UUID.randomUUID(); //UUID 생성
+		
+		//UUID를 포함한 파일명
+		String newFileName = uuid.toString() + upFile.getOriginalFilename();
+		
+		//실제 업로드
+		File file = new File(upFilePath, newFileName);
+
+		if (file.exists() == false) {
+			file.mkdirs();// => 혹시 파일이 경로에 없다면 자동으로 만들어주는 코드.
+		}
+		
+		try {
+			
+			FileOutputStream thumbnail = new FileOutputStream(new File(upFilePath, "s_"+newFileName));
+			Thumbnailator.createThumbnail(upFile.getInputStream(),thumbnail, 200, 200);
+			thumbnail.close();
+			
+			upFile.transferTo(file);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return newFileName;
 	}
 }

@@ -71,6 +71,6 @@
       </if>
    </insert>
    <update id="likeUp" parameterType="cdto">
-   		UPDATE comment SET clike=clike+1 WHERE board_no=${board_no} AND cno=${no} 
+   		UPDATE comment SET clike=clike+1 WHERE board_no=#{board_no} AND cno=#{no} 
    </update>
   </mapper>
