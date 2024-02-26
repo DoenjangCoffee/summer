@@ -2,17 +2,13 @@ package org.monwo.service;
 
 import org.monwo.dao.LoginDAO;
 import org.monwo.dto.LoginDTO;
-import org.monwo.dto.MemberDTO;
-import org.monwo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginService {
+public class LoginService extends AbstractService{
 	@Autowired
 	private LoginDAO loginDAO;
-	@Autowired
-	private Util util;
 	
 	public LoginDTO login(LoginDTO loginDTO) {
 		

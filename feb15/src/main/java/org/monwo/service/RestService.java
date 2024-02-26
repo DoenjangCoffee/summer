@@ -3,16 +3,13 @@ package org.monwo.service;
 import org.apache.commons.mail.EmailException;
 import org.monwo.dao.RestDAO;
 import org.monwo.dto.MemberDTO;
-import org.monwo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RestService {
-@Autowired
-private Util util;
-@Autowired
-private RestDAO dao;
+public class RestService extends AbstractService{
+	@Autowired
+	private RestDAO dao;
 
 	public int sendEmail() throws EmailException {
 		if (util.getSession().getAttribute("mid")!=null) {// email, key, mid를 저장하는 것

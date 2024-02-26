@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>게시판</title>
+<title>공지사항</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -111,7 +111,7 @@ function linkPage(pageNo){
 	<section class="page-section" id="services">
 		<div class="container">
 			<div class="text-center">
-				<h2 class="section-heading text-uppercase mt-5">게시판</h2>
+				<h2 class="section-heading text-uppercase mt-5">공지사항</h2>
 			</div>
 			<div class="row text-center">
 				<table class="table table-hover">
@@ -124,31 +124,9 @@ function linkPage(pageNo){
 								<th>조회수</th>
 							</tr>
 					</thead>
-						<tbody>
-							<c:forEach items="${list }" var="e">
-								<tr>
-									<td onclick="detail(${e.board_no})">${e.board_no }</td>
-									<td class="title" ><a href="./detail?no=${e.board_no }">${e.board_title }&nbsp;
-									<c:if test="${e.comment gt 0 }">
-									<span class="badge text-bg-danger">${e.comment }</span>
-									</c:if>
-									</a></td>
-									<td>${e.mname }</td>
-									<td>${e.board_date }</td>
-									<td>${e.board_count }</td>
-								</tr>
-						</c:forEach>
-					</tbody>
+
 				</table>
 				<!-- 페이징 들어갈 자리 -->
-			<div>
-				<ui:pagination paginationInfo = "${paginationInfo}" type="image" jsFunction="linkPage"/>
-			</div>
-			<c:if test="${sessionScope.mid ne null }">
-				<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#write">글쓰기</button>
-			</c:if>
-			</div>
-		</div>
 	</section>
 	<!-- 글쓰기 모달 만들기 -->
 	<div class="modal" id="write">

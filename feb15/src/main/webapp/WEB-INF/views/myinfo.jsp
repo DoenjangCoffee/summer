@@ -120,9 +120,8 @@
 						aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
 				</div>
 				<div class="col-lg-4 text-lg-end">
-					<a class="link-dark text-decoration-none me-3" href="#!">Privacy
-						Policy</a> <a class="link-dark text-decoration-none" href="#!">Terms
-						of Use</a>
+					<a class="link-dark text-decoration-none me-3" href="#!">이용약관</a>
+					<a class="link-dark text-decoration-none" href="/donation">기부 안내</a>
 				</div>
 			</div>
 		</div>

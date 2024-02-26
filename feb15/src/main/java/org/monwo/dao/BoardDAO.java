@@ -10,41 +10,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BoardDAO {
-	@Autowired
-	SqlSession sqlsession;
+public class BoardDAO extends AbstractDAO {
+
 	public List<BoardDTO> boardList(int pageNo) {
-		return sqlsession.selectList("board.boardList",pageNo);
+		return sqlSession.selectList("board.boardList",pageNo);
 	}
 	public BoardDTO detail(int no) {
-		return sqlsession.selectOne("board.detail",no);
+		return sqlSession.selectOne("board.detail",no);
 	}
 	public int wrtie(WriteDTO dto) {
-		return sqlsession.insert("board.write",dto);
+		return sqlSession.insert("board.write",dto);
 	}
 	public void countUp(BoardDTO dto) {
-		sqlsession.insert("board.countUp",dto);
+		sqlSession.insert("board.countUp",dto);
 	}
 	public int commentWrite(CommentDTO comment) {
-		return sqlsession.insert("board.commentWrite",comment);
+		return sqlSession.insert("board.commentWrite",comment);
 	}
 	public List<CommentDTO> commentsList(int reNo) {
-		return sqlsession.selectList("board.commentsList",reNo);
+		return sqlSession.selectList("board.commentsList",reNo);
 	}
 	public int postDel(WriteDTO dto) {
-		return sqlsession.update("board.postDel", dto);
+		return sqlSession.update("board.postDel", dto);
 	}
 	public int totalRecordCount() {
-		return sqlsession.selectOne("board.totalRecordCount");
+		return sqlSession.selectOne("board.totalRecordCount");
 	}
 	public int deleteComment(CommentDTO dto) {
-		return sqlsession.update("board.deleteComment", dto);
+		return sqlSession.update("board.deleteComment", dto);
 	}
 	public int checkCount(BoardDTO dto) {
-		return sqlsession.selectOne("board.checkCount", dto);
+		return sqlSession.selectOne("board.checkCount", dto);
 	}
 	public int likeUp(CommentDTO dto) {
-		return sqlsession.update("board.likeUp",dto);
+		return sqlSession.update("board.likeUp",dto);
 	}
 	
 }

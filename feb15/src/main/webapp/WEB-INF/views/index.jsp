@@ -5,53 +5,35 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Agency - Start Bootstrap Theme</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
-<link rel="apple-touch-icon" sizes="57x57"
-	href="assets//apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60"
-	href="assets//apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72"
-	href="assets//apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76"
-	href="assets//apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114"
-	href="assets//apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120"
-	href="assets//apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144"
-	href="assets//apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152"
-	href="assets//apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180"
-	href="assets//apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"
-	href="assets//android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32"
-	href="assets//favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96"
-	href="assets//favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16"
-	href="assets//favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="57x57" href="assets//apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets//apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets//apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets//apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets//apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets//apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets//apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets//apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets//apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets//android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets//favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets//favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <!-- Font Awesome icons (free version)-->
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
-	crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 <!-- Google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
-	rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
 </head>
@@ -62,10 +44,8 @@
 	<header class="masthead">
 		<div class="container">
 			<div class="masthead-subheading">Welcome To Our Studio!</div>
-			<div class="masthead-heading text-uppercase">It's Nice To Meet
-				You</div>
-			<a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell
-				Me More</a>
+			<div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+			<a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
 		</div>
 	</header>
 	<!-- Services-->
@@ -73,14 +53,13 @@
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">Services</h2>
-				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit
-					amet consectetur.</h3>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 			<div class="row text-center">
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+					<span class="fa-stack fa-4x"> 
+						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
+						<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
 					</span>
 					<h4 class="my-3">E-Commerce</h4>
 					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur
@@ -88,9 +67,9 @@
 						harum ex magni, dicta impedit.</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+					<span class="fa-stack fa-4x"> 
+						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
+						<i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
 					</span>
 					<h4 class="my-3">Responsive Design</h4>
 					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur
@@ -98,9 +77,9 @@
 						harum ex magni, dicta impedit.</p>
 				</div>
 				<div class="col-md-4">
-					<span class="fa-stack fa-4x"> <i
-						class="fas fa-circle fa-stack-2x text-primary"></i> <i
-						class="fas fa-lock fa-stack-1x fa-inverse"></i>
+					<span class="fa-stack fa-4x"> 
+						<i class="fas fa-circle fa-stack-2x text-primary"></i> 
+						<i class="fas fa-lock fa-stack-1x fa-inverse"></i>
 					</span>
 					<h4 class="my-3">Web Security</h4>
 					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur
@@ -128,8 +107,8 @@
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/1.jpg"
-							alt="..." />
+							</div> 
+								<img class="img-fluid" src="assets/img/portfolio/1.jpg"alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">Threads</div>
@@ -140,33 +119,28 @@
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 2-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal2">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/2.jpg"
-							alt="..." />
+							</div> <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">Explore</div>
-							<div class="portfolio-caption-subheading text-muted">Graphic
-								Design</div>
+							<div class="portfolio-caption-subheading text-muted">Graphic Design</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 3-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal3">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/3.jpg"
-							alt="..." />
+							</div> <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">Finish</div>
@@ -177,14 +151,12 @@
 				<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
 					<!-- Portfolio item 4-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal4">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/4.jpg"
-							alt="..." />
+							</div> <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">Lines</div>
@@ -195,33 +167,28 @@
 				<div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
 					<!-- Portfolio item 5-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal5">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/5.jpg"
-							alt="..." />
+							</div> <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">Southwest</div>
-							<div class="portfolio-caption-subheading text-muted">Website
-								Design</div>
+							<div class="portfolio-caption-subheading text-muted">Website Design</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6">
 					<!-- Portfolio item 6-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal6">
+						<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/6.jpg"
-							alt="..." />
+							</div> <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
 						</a>
 						<div class="portfolio-caption">
 							<div class="portfolio-caption-heading">Window</div>
@@ -237,14 +204,12 @@
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">About</h2>
-				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit
-					amet consectetur.</h3>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 			<ul class="timeline">
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src="assets/img/about/1.jpg"
-							alt="..." />
+						<img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -261,8 +226,7 @@
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src="assets/img/about/2.jpg"
-							alt="..." />
+						<img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -279,8 +243,7 @@
 				</li>
 				<li>
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src="assets/img/about/3.jpg"
-							alt="..." />
+						<img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -297,8 +260,7 @@
 				</li>
 				<li class="timeline-inverted">
 					<div class="timeline-image">
-						<img class="rounded-circle img-fluid" src="assets/img/about/4.jpg"
-							alt="..." />
+						<img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." />
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -328,59 +290,46 @@
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit
-					amet consectetur.</h3>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src="assets/img/team/1.jpg"
-							alt="..." />
+						<img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
 						<h4>Parveen Anand</h4>
 						<p class="text-muted">Lead Designer</p>
-						<a class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Parveen Anand Twitter Profile"><i
-							class="fab fa-twitter"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Parveen Anand Facebook Profile"><i
-							class="fab fa-facebook-f"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Parveen Anand LinkedIn Profile"><i
-							class="fab fa-linkedin-in"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile">
+							<i class="fab fa-twitter"></i></a> 
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile">
+							<i class="fab fa-facebook-f"></i></a> 
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile">
+							<i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src="assets/img/team/2.jpg"
-							alt="..." />
+						<img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
 						<h4>Diana Petersen</h4>
 						<p class="text-muted">Lead Marketer</p>
-						<a class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Diana Petersen Twitter Profile"><i
-							class="fab fa-twitter"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Diana Petersen Facebook Profile"><i
-							class="fab fa-facebook-f"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Diana Petersen LinkedIn Profile"><i
-							class="fab fa-linkedin-in"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile">
+							<i class="fab fa-twitter"></i></a> 
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile">
+							<i class="fab fa-facebook-f"></i></a> 
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile">
+							<i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="team-member">
-						<img class="mx-auto rounded-circle" src="assets/img/team/3.jpg"
-							alt="..." />
+						<img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
 						<h4>Larry Parker</h4>
 						<p class="text-muted">Lead Developer</p>
-						<a class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Larry Parker Twitter Profile"><i
-							class="fab fa-twitter"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Larry Parker Facebook Profile"><i
-							class="fab fa-facebook-f"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Larry Parker LinkedIn Profile"><i
-							class="fab fa-linkedin-in"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile">
+							<i class="fab fa-twitter"></i></a> 
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile">
+							<i class="fab fa-facebook-f"></i></a> 
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile">
+							<i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 			</div>
@@ -505,8 +454,7 @@
 	<footer class="footer py-4">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-lg-4 text-lg-start">Copyright &copy; Your
-					Website 2023</div>
+				<div class="col-lg-4 text-lg-start">Copyright &copy; M Company 2024</div>
 				<div class="col-lg-4 my-3 my-lg-0">
 					<a class="btn btn-dark btn-social mx-2" href="#!"
 						aria-label="Twitter"><i class="fab fa-twitter"></i></a> <a
@@ -516,9 +464,8 @@
 						aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
 				</div>
 				<div class="col-lg-4 text-lg-end">
-					<a class="link-dark text-decoration-none me-3" href="#!">Privacy
-						Policy</a> <a class="link-dark text-decoration-none" href="#!">Terms
-						of Use</a>
+					<a class="link-dark text-decoration-none me-3" href="#!">이용약관</a>
+					<a class="link-dark text-decoration-none" href="/donation">기부 안내</a>
 				</div>
 			</div>
 		</div>

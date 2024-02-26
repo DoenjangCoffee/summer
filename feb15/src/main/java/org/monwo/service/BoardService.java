@@ -8,16 +8,13 @@ import org.monwo.dao.BoardDAO;
 import org.monwo.dto.BoardDTO;
 import org.monwo.dto.CommentDTO;
 import org.monwo.dto.WriteDTO;
-import org.monwo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BoardService {
+public class BoardService extends AbstractService{
 	@Autowired
 	private BoardDAO dao;
-	@Autowired
-	private Util util;
 	
 	public List<BoardDTO> boardList(int pageNo) {
 		return dao.boardList(pageNo);

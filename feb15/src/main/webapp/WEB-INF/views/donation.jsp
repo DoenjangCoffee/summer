@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>게시판</title>
+<title>기부안내</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -47,53 +47,36 @@
 <link href="/css/summernote/summernote-lite.css" rel="stylesheet">
 <link href="/css/summernote/summernote-bs4.min.css" rel="stylesheet">
 </head>
-<script type="text/javascript">
-function galleryDetail(no){
-	location.href="./galleryDetail@"+no;
-}
-</script>
-
-<style type="text/css">
-.first{
-float : left;
-vertical-align: middle;
-}
-.second{
-float : right;
-vertical-align: middle;
-}
-</style>
 
 <body id="page-top">
 	<!-- Navigation-->
 	<%@ include file="menu.jsp" %>
 	
-	<!-- Services-->
-	<section class="page-section" id="services">
-		<div class="container">
-			<div class="text-center">
-				<h2 class="section-heading text-uppercase mt-5">Gallery 게시판</h2>
-			</div>
-		<section class="pt-4">
-			<div class="container px-lg-5">
-				<div class="row text-center">
-							<c:forEach items="${list }" var="g">
-								<div class="col-lg-6 col-xxl-4 mb-5">
-            			            <div class="card bg-light border-0 h-100"><img alt="이미지" src="./upFile/s_${g.gfile }" onclick="galleryDetail(${g.gno })">
-                        		    	<div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                			<div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
-												<div class="first"><img alt="이미지" src="./assets/img/love.png">&nbsp;${g.glike }</div><div class="second">${g.gdate }</div>
-	        	                    		</div>
-    	        	            		</div>
-        	        	    		</div>
-							</c:forEach>
-						</div>
-					</div>
-			</section>
-			<button type="button" class="btn btn-outline-danger" onclick="location.href='./galleryInsert'">Gallery Write</button>
-		</div>
-
-
+        <!-- Header-->
+        <header class="masthead d-flex align-items-center">
+            <div class="container px-4 px-lg-5 text-center">
+                <h1 class="mb-1">Stylish Portfolio</h1>
+                <h3 class="mb-5"><em>A Free Bootstrap Theme by Start Bootstrap</em></h3>
+                <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+            </div>
+        </header>
+        
+        <section class="content-section bg-light" id="about">	
+            <div class="container px-4 px-lg-5 text-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-10">
+                        <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
+                        <p class="lead mb-5">
+                            This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at
+                            <a href="https://unsplash.com/">Unsplash</a>
+                            !
+                        </p>
+                        <a class="btn btn-dark btn-xl" href="#services">What We Offer</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+	
 	</section>
  	<footer class="footer py-4">
 		<div class="container">

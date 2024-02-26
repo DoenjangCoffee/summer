@@ -196,7 +196,7 @@ $(function(){
 				</div>
 				<div class="col-lg-4 text-lg-end">
 					<a class="link-dark text-decoration-none me-3" href="#!">이용약관</a> 
-					<a class="link-dark text-decoration-none" href="#!">기부금 안내</a>
+					<a class="link-dark text-decoration-none" href="donation">기부금 안내</a>
 						
 				</div>
 			</div>

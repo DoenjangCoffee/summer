@@ -10,6 +10,7 @@
   		<typeAlias type="org.monwo.dto.LoginDTO" alias="loginDTO"/>
   		<typeAlias type="org.monwo.dto.MemberDTO" alias="mdto"/>
   		<typeAlias type="org.monwo.dto.GalleryDTO" alias="gdto"/>
+  		<typeAlias type="org.monwo.dto.NoticeDTO" alias="ndto"/>
   	</typeAliases>
   	
   </configuration>

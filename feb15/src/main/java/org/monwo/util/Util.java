@@ -123,7 +123,7 @@ public class Util{
 		try {
 			
 			FileOutputStream thumbnail = new FileOutputStream(new File(upFilePath, "s_"+newFileName));
-			Thumbnailator.createThumbnail(upFile.getInputStream(),thumbnail, 200, 200);
+			Thumbnailator.createThumbnail(upFile.getInputStream(),thumbnail, 150,150);
 			thumbnail.close();
 			
 			upFile.transferTo(file);
