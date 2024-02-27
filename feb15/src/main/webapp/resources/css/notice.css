@@ -1,0 +1,9 @@
+@charset "UTF-8";
+td > img{
+	animation: blink-effect 2s step-end infinite;
+}
+  @keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
