@@ -13,16 +13,6 @@ public class GalleryServiceImpl extends AbstractService implements GalleryServic
 	@Autowired
 	private GalleryDAO dao;
 	
-	public int galleryInsert(GalleryDTO dto) {
-		
-		// 세션 추가
-		if (util.getSession().getAttribute("mid") != null) {
-			dto.setMid((String)util.getSession().getAttribute("mid"));
-			return dao.galleryInsert(dto);
-		} else {
-			return 0;
-		}
-	}
 
 	@Override
 	public List<GalleryDTO> galleryList() {
@@ -39,5 +29,16 @@ public class GalleryServiceImpl extends AbstractService implements GalleryServic
 		return dao.alterGallery(no);
 	}
 
+	@Override
+	public int galleryInsert(GalleryDTO dto) {
+			
+			// 세션 추가
+			if (util.getSession().getAttribute("mid") != null) {
+				dto.setMid((String)util.getSession().getAttribute("mid"));
+				return dao.galleryInsert(dto);
+			} else {
+				return 0;
+			}
+		}
+	}
 
-}

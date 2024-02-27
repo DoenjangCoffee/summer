@@ -5,8 +5,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>게시판</title>
@@ -47,6 +46,7 @@
 <script src="/js/summernote/summernote-bs4.min.js"></script>
 <link href="/css/summernote/summernote-lite.css" rel="stylesheet">
 <link href="/css/summernote/summernote-bs4.min.css" rel="stylesheet">
+
 </head>
 <script type="text/javascript">
 	function writeCheck(){

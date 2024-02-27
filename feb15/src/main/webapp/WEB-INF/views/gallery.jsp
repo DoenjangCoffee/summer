@@ -37,7 +37,8 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
-<link href="css/board.css" rel="stylesheet" />
+<link href="css/galleryBoard.css" rel="stylesheet" />
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- summer note -->
@@ -69,7 +70,7 @@ vertical-align: middle;
 	<%@ include file="menu.jsp" %>
 	
 	<!-- Services-->
-	<section class="page-section" id="services">
+	<section class="page-section" id="gallery">
 		<div class="container">
 			<div class="text-center">
 				<h2 class="section-heading text-uppercase mt-5">Gallery 게시판</h2>
@@ -80,8 +81,7 @@ vertical-align: middle;
 							<c:forEach items="${list }" var="g">
 								<div class="col-lg-6 col-xxl-4 mb-5">
             			            <div class="card bg-light border-0 h-100"><img alt="이미지" src="./upFile/s_${g.gfile }" onclick="galleryDetail(${g.gno })">
-                        		    	<div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                			<div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
+                        		    	<div class="card-body pt-3">
 												<div class="first"><img alt="이미지" src="./assets/img/love.png">&nbsp;${g.glike }</div><div class="second">${g.gdate }</div>
 	        	                    		</div>
     	        	            		</div>
@@ -112,10 +112,10 @@ vertical-align: middle;
 		</div>
 	</footer>
 	<!-- Bootstrap core JS-->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	<script src="js/galleryBoard.js"></script>
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>

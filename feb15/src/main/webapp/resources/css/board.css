@@ -2,16 +2,6 @@
 .title{
 	text-align: left;
 }
-.title > a{
-	text-decoration: none;
-	color: black;
-	animation: blink-effect 3s step-end infinite;
-}
-/*  @keyframes blink-effect {
-  50% {
-    opacity: 0;
-  }
-}  */
 .comment{
 	border: 1px solid black;
 }

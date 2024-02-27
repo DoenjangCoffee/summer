@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -37,7 +39,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
-<link href="css/board.css" rel="stylesheet" />
+<link href="css/notice.css" rel="stylesheet" />
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -48,61 +50,6 @@
 <link href="/css/summernote/summernote-lite.css" rel="stylesheet">
 <link href="/css/summernote/summernote-bs4.min.css" rel="stylesheet">
 </head>
-<script type="text/javascript">
-	function writeCheck(){
-		let title = document.querySelector("#exampleFormControlInput1");
-		let content = document.querySelector("#content");
-		if (title.value.length < 2) {
-			alert("제목은 두글자 이상 적어주세요.");
-			title.focus();
-			return false;
-		}
-		if (content.value.length < 2) {
-			alert("내용은 두글자 이상 적어주세요.");
-			content.focus();
-			return false;
-		}
-	}
-	function detail(no){
-/*  		swal({ // 이거는 그냥 이쁘게 꾸미는 거다. icon에 success, info, error, warning을 사용 가능
-			title:"굿잡브르",
-			text:"번호는 "+no,
-			icon:"warning",
-			button:"바튼" // title, text, icon, button
-		});  */
-		// 모달 바로보기
-		let detailModal = new bootstrap.Modal('#detail', {}); // {} - 괄호안에는 옵션이 들어간다.
-		//$('#modalTitle').text(no);
-		//$('#modalContent').text("변경된된 내용입니다.");
-	     //detailModal.show();
- 		$.ajax({
-			url:"/restDetail",
-			type:"post",
-			dataType:"json",
-			data:{"no":no},
-			success:function(data){ // 지금은 text으로 하고 나중에 json 으로 변경한다.
-				//alert(data.board_title);
-				$('#modalTitle').text(data.board_title);
-				$('#modalContent').html(data.board_content);
-			   	detailModal.show();
-			},
-			error:function(error){
-				swal({
-					title:"문제 발생",
-					text: "뭔가 잘못되고 있습니디.",
-					icon: "error",
-					button:"닫기"
-				});
-			}
-		});//ajax end
-	}// detail end
-
-// 전자정부 페이징 이동하는 스크립트
-function linkPage(pageNo){
-			location.href = "./board?pageNo="+pageNo;
-		}
-	
-</script>
 <body id="page-top">
 	<!-- Navigation-->
 	<%@ include file="menu.jsp" %>
@@ -114,60 +61,47 @@ function linkPage(pageNo){
 				<h2 class="section-heading text-uppercase mt-5">공지사항</h2>
 			</div>
 			<div class="row text-center">
+			
+				<c:choose>
+					<c:when test="${fn:length(list) > 0 }">
 				<table class="table table-hover">
 					<thead>
 							<tr>
 								<th>글번호</th>
 								<th>글제목</th>
-								<th>글쓴이</th>
 								<th>날짜</th>
 								<th>조회수</th>
+								<th>추천</th>
 							</tr>
 					</thead>
-
+					<tbody>
+					<jsp:useBean id="wow" class="java.util.Date"/>
+					<fmt:formatDate value="${wow }" pattern="yyyy-MM-dd" var="today"/>
+						<c:forEach items="${list }" var="a">
+							<tr>
+								<td>${a.nno }</td>
+								<td onclick="location.href = ./noticeDetail?no=${a.nno}">
+								<c:if test="${a.ndate eq today }">
+								<img alt="이미지" src="assets/img/new.png">
+								</c:if>
+								<a href ="./noticeDetail?no=${a.nno }">${a.ntitle }</a></td>
+								<td>${a.nwritedate}</td>
+								<td>${a.nread }</td>
+								<td>${a.nlike }</td>
+								<td></td>
+							</tr>
+						</c:forEach>
+					</tbody>
 				</table>
-				<!-- 페이징 들어갈 자리 -->
-	</section>
-	<!-- 글쓰기 모달 만들기 -->
-	<div class="modal" id="write">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header">
-					<!-- <h3 class="modal-title">글쓰기 창 입니다.</h3> -->
-					<button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#wrtie"></button>
-				</div>
-				<div class="modal-body">
-					<div class="mt-2">
-						<form action="./write" method="post" onsubmit="return writeCheck()" name="frm">
-							<input type="text" name="title" class="form-control mb-2" id="exampleFormControlInput1" placeholder="제목을 적어주세요" required="required" >
-							<textarea name="content" id="summernote" class="form-control mb-2 vh-500" required="required"></textarea>
-							<button type="submit" class="btn btn-info" style="float: right">작성</button>
-						</form>
-					</div>
-				</div>
-				</div>
-				</div>
-				</div>
-	<div class="modal" id="detail">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class = "modal-title" id = "modalTitle">상세보기</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-				</div>
-				<div class="modal-body">
-					<div class="mt-2" id = "modalContent">
-						제목<br>
-						본문내용
-					</div>
-				</div>
-				<div class="modal-footer">
-					상세보기 모달 닫기
-					<!-- 2024-02-19 / RESTAPI / RESTFULL-->
-				</div>
+					</c:when>
+					<c:otherwise>
+						화면에 출력할 값이 없습니다.
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
-	</div>
+	<!-- 페이징 들어갈 자리 -->
+	</section>
 
  	<footer class="footer py-4">
 		<div class="container">
@@ -191,7 +125,7 @@ function linkPage(pageNo){
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-	
+
 	<script type="text/javascript">
 	$(function(){
 		$('#summernote').summernote({
