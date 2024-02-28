@@ -40,6 +40,11 @@
 <link href="css/styles.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<script type="text/javascript">
+function join(){
+	location.href="./join";
+}
+</script>
 <body id="page-top">
 	<!-- Navigation-->
 	<%@ include file="menu.jsp" %>
@@ -61,7 +66,7 @@
 					<button type="reset" class="btn btn-outline-secondary">초기화</button>
 					</div>
 				</form>
-				<button type="button" id="join" class="btn btn-outline-danger">가입하기</button>
+				<button type="button" id="join" class="btn btn-outline-danger" onclick="location.href='./join'">가입하기</button>
 			</div>
 		</div>
 	</section>

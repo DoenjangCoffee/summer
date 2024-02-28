@@ -5,15 +5,19 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
+import org.apache.ibatis.annotations.Param;
 import org.monwo.dto.LoginDTO;
 import org.monwo.dto.MemberDTO;
 import org.monwo.service.LoginService;
 import org.monwo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LoginController {
@@ -85,7 +89,19 @@ public class LoginController {
 		}else {
 			return "redirect:/login";
 		}
-		
-		
+	}
+	
+	// 02-28 회원 가입 페이지
+	// 아이디 중복 검사 - 비밀번호 - 비밀번호 확인 - 이메일 [중복 불가] - 닉네임[중복 불가]
+	@GetMapping("/join")
+	public String join() {
+		return "join";
+	}
+	
+	// 아아디 중복 검사
+	@GetMapping("/idCheck")
+	public @ResponseBody int idCheck(@Param("id") String id) {
+		int result = loginService.idCheck(id);
+		return result;
 	}
 }

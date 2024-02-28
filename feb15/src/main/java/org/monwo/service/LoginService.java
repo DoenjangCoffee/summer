@@ -23,4 +23,9 @@ public class LoginService extends AbstractService{
 	public void mcountReset(LoginDTO loginDTO) {
 		loginDAO.mcountReset(loginDTO);
 	}
+
+	public int idCheck(String id) {
+		
+		return loginDAO.idCheck(id);
+	}
 }

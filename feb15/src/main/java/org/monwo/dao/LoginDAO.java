@@ -17,4 +17,9 @@ public class LoginDAO extends AbstractDAO{
 	public void mcountReset(LoginDTO loginDTO) {
 		sqlSession.update("login.mcountReset", loginDTO);
 	}
+
+	public int idCheck(String id) {
+		return sqlSession.selectOne("login.idCheck",id);
+		
+	}
 }
