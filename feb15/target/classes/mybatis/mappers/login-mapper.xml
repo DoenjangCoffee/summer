@@ -2,21 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="login">
-	<select id="login" parameterType="loginDTO" resultType="loginDTO">
-	<![CDATA[
-		SELECT COUNT(*) AS count, mname, mcount, AES_DECRYPT(UNHEX(mpw),'Daiso')  AS pw FROM member WHERE mid=#{id} AND mgrade > 4
-		]]>
-	</select>
-	<update id="mcountUp" parameterType="loginDTO">
-		UPDATE member mcount SET mcount=mcount+1 WHERE mid=#{id}
-	</update>
-	<update id="mcountReset" parameterType="loginDTO">
-		UPDATE member mcount SET mcount=1 WHERE mid=#{id}
-	</update>
-	<select id="idCheck" parameterType="String" resultType="Integer">
-		SELECT COUNT(*) AS count FROM member WHERE mid=#{id}
-	</select>
-	<insert id="join" parameterType="mDTO">
-		INSERT INTO member(mid)
-	</insert>
+   <select id="login" parameterType="loginDTO" resultType="loginDTO">
+   <![CDATA[
+      SELECT COUNT(*) AS count, mname, mcount, AES_DECRYPT(UNHEX(mpw),'Daiso')  AS pw FROM member WHERE mid=#{id} AND mgrade > 4
+      ]]>
+   </select>
+   <update id="mcountUp" parameterType="loginDTO">
+      UPDATE member mcount SET mcount=mcount+1 WHERE mid=#{id}
+   </update>
+   <update id="mcountReset" parameterType="loginDTO">
+      UPDATE member mcount SET mcount=1 WHERE mid=#{id}
+   </update>
+   <select id="idCheck" parameterType="String" resultType="Integer">
+      SELECT COUNT(*) AS count FROM member WHERE mid=#{id}
+   </select>
+   <insert id="join" parameterType="mDTO">
+      INSERT INTO member(mid)
+   </insert>
+   <select id="nickCheck" parameterType="String" resultType="Integer">
+      SELECT COUNT(*) FROM member WHERE mname=#{nick}
+   </select>
   </mapper>

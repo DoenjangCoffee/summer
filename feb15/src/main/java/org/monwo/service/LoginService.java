@@ -7,25 +7,29 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LoginService extends AbstractService{
-	@Autowired
-	private LoginDAO loginDAO;
-	
-	public LoginDTO login(LoginDTO loginDTO) {
-		
-		return loginDAO.login(loginDTO);
-	}
+   @Autowired
+   private LoginDAO loginDAO;
+   
+   public LoginDTO login(LoginDTO loginDTO) {
+      
+      return loginDAO.login(loginDTO);
+   }
 
-	public void mcountUp(LoginDTO loginDTO) {
-		
-		loginDAO.mcountUp(loginDTO); // 이녀석을 return 값이 없다.
-	}
+   public void mcountUp(LoginDTO loginDTO) {
+      
+      loginDAO.mcountUp(loginDTO); // 이녀석을 return 값이 없다.
+   }
 
-	public void mcountReset(LoginDTO loginDTO) {
-		loginDAO.mcountReset(loginDTO);
-	}
+   public void mcountReset(LoginDTO loginDTO) {
+      loginDAO.mcountReset(loginDTO);
+   }
 
-	public int idCheck(String id) {
-		
-		return loginDAO.idCheck(id);
-	}
+   public int idCheck(String id) {
+      
+      return loginDAO.idCheck(id);
+   }
+
+   public int nickCheck(String nick) {
+      return loginDAO.nickCheck(nick);
+   }
 }

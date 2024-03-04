@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>회원가입</title>
@@ -43,98 +43,144 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
+   
 function idCheck(){
-	const id = document.getElementById("id").value;
-	if (id.search(/\W|\s/g) > -1) {
-		alert("아이디에 공백 또는 특수문자를 포함 할 수 없습니다.");
-	}else{
-		$(function(){
-			$.ajax({
-			url:"/idCheck",
-			dataType:"text",
-			tyep:"get",
-			data:{"id":id},
-			success:function(result){
-				if (result == 1) {
-					alert("이미 존재하는 아이디 입니다.");					
-				} else {
-					alert("사용 가능한 아이디 입니다.");
-				}
-			},
-			error:function(error){
-				alert("관리자에게 문의하세요");
-			}
-		}); // ajax end
-				
-	});// jquery end
-	}
-	//const checkId=id.replaceAll(/[\s]/g,"");
+   var id = document.getElementById("id").value;
+   if (id.search(/\W|\s/g) > -1) {
+      alert("아이디에 공백 또는 특수문자를 포함 할 수 없습니다.");
+   }else{
+      $(function(){
+         $.ajax({
+         url:"/idCheck",
+         dataType:"text",
+         tyep:"get",
+         data:{"id":id},
+         success:function(result){
+            if (result == 1) {
+               alert("이미 존재하는 아이디 입니다.");               
+            } else {
+               alert("사용 가능한 아이디 입니다.");
+               
+            }
+         },
+         error:function(error){
+            alert("관리자에게 문의하세요");
+         }
+      }); // ajax end
+            
+   });// jquery end
+   }
+   //const checkId=id.replaceAll(/[\s]/g,"");
 }
+
+function nickCheck(){
+   const nickName = document.getElementById("nickname").value;
+   if (nickName.search(/[^a-zA-Z-ㄱ-ㅎ가-힣-0-9]|\s/g) > -1) {
+      alert("닉네임에 공백 또는 특수문자를 포함 할 수 없습니다.");
+   }else{
+      $(function(){
+         $.ajax({
+            url:"/nickCheck",
+            dataType:"text",
+            type:"post",
+            data:{"nick":nickName},
+            success:function(result){
+               if (result == 1) {
+                  alert("이미 존재하는 닉네임입니다.");
+               } else {
+                  alert("사용 가능한 닉네임입니다.");
+               }
+            },
+            error:function(error){
+               alert("관리자에게 문의하세요");
+            }
+         });//ajax end
+      });//jquery end
+   }
+}
+
+function checkForm(){
+   const InputId = document.getElementById("id").value.trim();
+   const InputPassword = document.getElementById("password").value.trim();
+   const InputPassword2 = document.getElementById("password2").value.trim();
+   const InputNickName = document.getElementById("nickname").value.trim();
+   const InputEmail = document.getElementById("email").value.trim();
+   
+   const id = InputId.length >=2;
+   const password = InputPassword.length >= 2;
+   const password2 = InputPassword2.length >=2;
+   const nickname = InputNickName.length >=2;
+   const email = InputEmail.length >=2;
+   
+   const allForm = id && password && password2 && nickname && email;
+   
+   document.getElementById("join").disabled = !allForm;
+}
+
 </script>
 </head>
 <body id="page-top">
-	<!-- Navigation-->
-	<%@ include file="menu.jsp" %>
-	
-	<section>
-		<h1>회원가입</h1>
-		${result }
-		<div class ="container bg-success">
-			<div class="row justify-content-md-center m-3 p-3 ">
-				<label class="col-2 fw-bold fs-4">아이디</label>
-				<input class="form-control col" type="text" id="id" name="id">
-				&nbsp;<button type="button" class="btn btn-danger col-2 fw-bold" onclick="idCheck()">중복검사</button>
-			</div>
-			<div class="row justify-content-md-center m-3 p-3">
-				<span class="fw-bold align-middel col-2 fs-4">비밀번호</span>
-				<input class="form-control col" type="password" id="password">
-			<div class = "row justify-content-md-center m-1 p-1">
-				<span class="fw-bold align-middel col-2 fs-4" >확인</span>
-				<input class="form-control col" type="password" id="password2">
-			</div>
-			<div class="row justify-content-md-center m-3 p-3">
-				<label class="col-2 fw-bold fs-4">닉네임</label>
-				<input class="form-control col" type="text" id="nickname">
-				&nbsp;<button type="button" class="btn btn-danger col-2 fw-bold">중복검사</button>
-			</div>
-			<div class="row justify-content-md-center m-3 p-3">
-			<label class="col-2 fw-bold fs-4">이메일</label>
-			<input class="form-control col" type="text" id="email">@
-				<select class="form-select col " id="domain-list">
-  				<option value="naver.com">naver.com</option>
-  				<option value="google.com">google.com</option>
-  				<option value="hanmail.net">hanmail.net</option>
-  				<option value="nate.com">nate.com</option>
-  				<option value="kakao.com">kakao.com</option>
-				</select>
-			</div>	
-			<button type="button" class="btn btn-dark btn-lg p-2 m-2 float-end">가입하기</button>
-			<button type="button" class="btn btn-dark btn-lg p-2 m-2 float-end disabled">가입하기</button>			
-		</div>
-	</div>	
-	</section>
- 	<footer class="footer py-4">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-4 text-lg-start">Copyright &copy; M Company 2024</div>
-				<div class="col-lg-4 my-3 my-lg-0">
-					<a class="btn btn-dark btn-social mx-2" href="https://twitter.com/?lang=ko"aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-				</div>
-				<div class="col-lg-4 text-lg-end">
-					<a class="link-dark text-decoration-none me-3" href="#!">이용약관</a> 
-					<a class="link-dark text-decoration-none" href="/donation">기부금 안내</a>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Bootstrap core JS-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
-	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+   <!-- Navigation-->
+   <%@ include file="menu.jsp" %>
+   
+   <section>
+      <h1>회원가입</h1>
+      <div class ="container bg-success">
+         <div class="row justify-content-md-center m-3 p-3 ">
+            <label class="col-2 fw-bold fs-4">아이디</label>
+            <input class="form-control col" type="text" id="id" name="id" onkeyup="checkForm()">
+            &nbsp;<button type="button" class="btn btn-danger col-2 fw-bold" onclick="idCheck()">중복검사</button>
+         </div>
+         <div class="row justify-content-md-center m-3 p-3">
+            <span class="fw-bold align-middel col-2 fs-4">비밀번호</span>
+            <input class="form-control col" type="password" id="password" onkeyup="checkForm()">
+         <div class = "row justify-content-md-center m-1 p-1">
+            <span class="fw-bold align-middel col-2 fs-4" >확인</span>
+            <input class="form-control col" type="password" id="password2" onkeyup="checkForm()">
+         </div>
+         <div class="row justify-content-md-center m-3 p-3">
+            <label class="col-2 fw-bold fs-4">닉네임</label>
+            <input class="form-control col" type="text" id="nickname" onkeyup="checkForm()">
+            &nbsp;<button type="button" class="btn btn-danger col-2 fw-bold" onclick="nickCheck()">중복검사</button>
+            <label>닉네임은 한글, 영어[대소문자] 10자 이내(특수문자,공백 불가)</label>
+         </div>
+         <div class="row justify-content-md-center m-3 p-3">
+         <label class="col-2 fw-bold fs-4">이메일</label>
+         <input class="form-control col" type="text" id="email" onkeyup="checkForm()">@
+            <select class="form-select col " id="domain-list">
+              <option value="naver.com">naver.com</option>
+              <option value="google.com">google.com</option>
+              <option value="hanmail.net">hanmail.net</option>
+              <option value="nate.com">nate.com</option>
+              <option value="kakao.com">kakao.com</option>
+            </select>
+         </div>   
+         <button type="button" class="btn btn-dark btn-lg p-2 m-2 float-end" id="join" disabled>가입하기</button>
+      </div>
+   </div>   
+   </section>
+    <footer class="footer py-4">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-start">Copyright &copy; M Company 2024</div>
+            <div class="col-lg-4 my-3 my-lg-0">
+               <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/?lang=ko"aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+               <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+               <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+               <a class="link-dark text-decoration-none me-3" href="#!">이용약관</a> 
+               <a class="link-dark text-decoration-none" href="/donation">기부금 안내</a>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- Bootstrap core JS-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Core theme JS-->
+   <script src="js/scripts.js"></script>
+   <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </body>
 </html>
